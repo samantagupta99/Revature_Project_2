@@ -1,0 +1,23 @@
+import numpy as np
+import pandas as pd
+df = pd.read_csv("flights.csv")
+
+#SHAPE AND COLUMN NAMES OF DATASET
+print("Shape:\n",df.shape)
+print("Columns:\n",df.columns)
+
+
+#xplore how many null values are in each column of your datase
+print("Number of missing Values per columns:\n",df.isna().sum())
+
+#PREPROCESSING (REMOVE NULL ROWS)  
+flights_new=df.dropna()
+print("Number of missing Values per columns after Preprocessing:\n",flights_new.isna().sum())
+
+
+#flights_new.to_csv('flights_new.csv',index=False)
+
+    
+# import plotly.express as px
+# fig = px.bar(DAY, x=DAY.index, y='mean',   color='count', height=400, title="Delays in Jan 2019")
+# fig.show()
