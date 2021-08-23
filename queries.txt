@@ -1,0 +1,155 @@
+1. Read in the airports data and Show the top 10
+  
+2. Read in the flights data and Show the top 10
+
+3. Read in the airlines data and Show the top 10
+
+
+# adding data into spark view for sql querying
+flights.createOrReplaceTempView('flights')
+
+
+3.# Don't change this query
+query = "SELECT AIRLINE, FLIGHT_NUMBER, TAIL_NUMBER, ORIGIN_AIRPORT, DESTINATION_AIRPORT, SCHEDULED_DEPARTURE FROM flights LIMIT 5"
+
+# Get the first 10 rows of flights
+flights5 = spark.sql(query)
+
+# Show the results
+flights5.show()
+
+4.# Don't change this query
+query = "SELECT ORIGIN_AIRPORT, DESTINATION_AIRPORT, COUNT(*) as N FROM flights GROUP BY ORIGIN_AIRPORT, DESTINATION_AIRPORT"
+
+# Run the query
+flight_counts = spark.sql(query)
+
+
+5.# Create the DataFrame flights
+flights = spark.table("flights")
+
+# Add duration_hrs
+flights = flights.withColumn('duration_hrs', flights.AIR_TIME/60.)
+flights.selectExpr("air_time/60 as duration_hrs")
+
+# Show the head
+flights.select('duration_hrs').show(10)
+
+6.flights.filter("air_time > 120").show()
+flights.filter(flights.air_time > 120).show()
+
+7.# Select the first set of columns
+selected1 = flights.select('TAIL_NUMBER', 'ORIGIN_AIRPORT', 'DESTINATION_AIRPORT',)
+
+# Select the second set of columns
+temp = flights.select(flights.ORIGIN_AIRPORT, flights.DESTINATION_AIRPORT, flights.AIRLINE)
+
+temp.show()
+
+8.# Define first filter
+filterA = flights.ORIGIN_AIRPORT == "SEA"
+
+# Define second filter
+filterB = flights.DESTINATION_AIRPORT == "PDX"
+
+# Filter the data, first by filterA then by filterB
+selected2 = temp.filter(filterA).filter(filterB)
+
+9.# Define avg_speed
+avg_speed = (flights.DISTANCE/(flights.AIR_TIME/60)).alias("avg_speed")
+
+# Select the correct columns
+speed1 = flights.select('TAIL_NUMBER', 'ORIGIN_AIRPORT', 'DESTINATION_AIRPORT', avg_speed)
+
+# Create the same table using a SQL expression
+speed2 = flights.selectExpr('TAIL_NUMBER', 'ORIGIN_AIRPORT', 'DESTINATION_AIRPORT', "DISTANCE/(AIR_TIME/60) as avg_speed")
+
+10.# Cast the columns to integers
+flights = flights.withColumn("MONTH", flights.MONTH.cast("integer"))
+flights = flights.withColumn("DAY_OF_WEEK", flights.DAY_OF_WEEK.cast("integer"))
+flights = flights.withColumn("AIR_TIME", flights.AIR_TIME.cast("integer"))
+flights = flights.withColumn("DISTANCE", flights.DISTANCE.cast("double"))
+flights = flights.withColumn("ARRIVAL_DELAY", flights.ARRIVAL_DELAY.cast("integer"))
+
+11. # Find the shortest flight from PDX in terms of distance
+flights.filter(flights.ORIGIN_AIRPORT == 'PDX').groupBy().min('DISTANCE').show()
+
+# Find the longest flight from SEA in terms of air time
+flights.filter(flights.ORIGIN_AIRPORT == 'SEA').groupBy().max('AIR_TIME').show()
+
+12.# Group by tailnum
+by_plane = flights.groupBy("TAIL_NUMBER")
+
+# Number of flights each plane made
+by_plane.count().show(10)
+
+# Group by origin
+by_origin = flights.groupBy("ORIGIN_AIRPORT")
+
+# Average duration of flights from PDX and SEA
+by_origin.avg("AIR_TIME").show(10)
+
+13.# Import pyspark.sql.functions as F
+import pyspark.sql.functions as F
+
+# cast
+flights = flights.withColumn("DEPARTURE_DELAY", flights.DEPARTURE_DELAY.cast("integer"))
+
+# Group by month and dest
+by_month_dest = flights.groupBy('MONTH', 'DESTINATION_AIRPORT')
+
+# Average departure delay by month and destination
+by_month_dest.avg('DEPARTURE_DELAY').show(10)
+
+# Standard deviation of departure delay
+by_month_dest.agg(F.stddev('DEPARTURE_DELAY')).show(10)
+
+14.# Rename the faa column
+airports = airports.withColumnRenamed("IATA_CODE", "DESTINATION_AIRPORT")
+
+# Join the DataFrames
+flights_with_airports = flights.join(airports , on = 'DESTINATION_AIRPORT', how = 'leftouter')
+
+# Examine the new DataFrame
+print(flights_with_airports.columns)
+print(flights_with_airports.count())
+
+15.# Read in the airports data
+airlines = spark.read.csv(data_paths['airlines.csv'], header = True)
+
+# Show the data shape
+print((airlines.count(), len(airlines.columns)))
+
+airlines.show()
+
+16.# filtering columns
+model_data = flights.select('MONTH', 'DAY_OF_WEEK', 'AIRLINE', 'TAIL_NUMBER', 'DESTINATION_AIRPORT', 'AIR_TIME', 'DISTANCE', 'ARRIVAL_DELAY',)
+
+# Remove missing values
+model_data = model_data.filter("ARRIVAL_DELAY is not NULL and AIRLINE is not NULL and AIR_TIME is not NULL and TAIL_NUMBER is not NULL")
+
+# rows left
+model_data.count()
+
+17.# Create is_late (label)
+model_data = model_data.withColumn("is_late", model_data.ARRIVAL_DELAY > 0)
+
+# cast
+model_data = model_data.withColumn("is_late", model_data.is_late.cast("integer"))
+
+# rename column
+model_data = model_data.withColumnRenamed("is_late", 'label')
+model_data.show(15)
+
+18.print('Labels distrubution:')
+model_data.groupBy('label').count().show()
+
+19.#display abbrevation of airlines by jlining 2 tables
+query = "SELECT f.AIRLINE,a.AIRLINE
+               FROM flights f
+               JOIN AIRLINES a.AIRLINE_CODE=f.AIRLINE
+               LIMIT 5"
+
+flights = spark.sql(query)
+flights.show()
+
