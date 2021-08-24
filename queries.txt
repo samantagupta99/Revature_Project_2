@@ -153,3 +153,7 @@ query = "SELECT f.AIRLINE,a.AIRLINE
 flights = spark.sql(query)
 flights.show()
 
+20. https://easyrdatascience.files.wordpress.com/2018/07/pyspark-3-dataframes.pdf     [spark SQL.. Pg 25]
+
+21.https://github.com/goldshtn/spark-workshop/blob/master/scala/lab2-airlines.md   [RDD]
+
