@@ -38,4 +38,4 @@
 
 20.count and columns of flights dataset
 
-
+21. merge flight and airlines data based on airport [SQL]
