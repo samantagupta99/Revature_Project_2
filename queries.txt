@@ -127,14 +127,16 @@ model_data = flights.select('MONTH', 'DAY_OF_WEEK', 'AIRLINE', 'TAIL_NUMBER', 'D
 
 # Remove missing values
 model_data = model_data.filter("ARRIVAL_DELAY is not NULL and AIRLINE is not NULL and AIR_TIME is not NULL and TAIL_NUMBER is not NULL")
-
+model_data.show(15)
 # rows left
 model_data.count()
 
+
+
 17.# Create is_late (label)
+model_data = flights.select('MONTH', 'DAY_OF_WEEK', 'AIRLINE', 'TAIL_NUMBER', 'DESTINATION_AIRPORT', 'AIR_TIME', 'DISTANCE', 'ARRIVAL_DELAY',)
 model_data = model_data.withColumn("is_late", model_data.ARRIVAL_DELAY > 0)
 
-# cast
 model_data = model_data.withColumn("is_late", model_data.is_late.cast("integer"))
 
 # rename column
