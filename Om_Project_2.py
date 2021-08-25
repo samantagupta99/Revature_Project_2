@@ -142,3 +142,27 @@ flights1.show(truncate=False,n=10)
 #flights_with_airports.show(15)
 #print(flights_with_airports.columns)
 #print(flights_with_airports.count())
+
+#17
+#model_data = flights1.select('MONTH', 'DAY_OF_WEEK', 'AIRLINE', 'TAIL_NUMBER', 'DESTINATION_AIRPORT', 'AIR_TIME', 'DISTANCE', 'ARRIVAL_DELAY',)
+#model_data = model_data.filter("ARRIVAL_DELAY is not NULL and AIRLINE is not NULL and AIR_TIME is not NULL and TAIL_NUMBER is not NULL")
+#model_data.show(15)
+#model_data.count()
+
+
+#18
+#model_data = flights1.select('MONTH', 'DAY_OF_WEEK', 'AIRLINE', 'TAIL_NUMBER', 'DESTINATION_AIRPORT', 'AIR_TIME', 'DISTANCE', 'ARRIVAL_DELAY',)
+#model_data = model_data.withColumn("is_late", model_data.ARRIVAL_DELAY > 0)
+#model_data = model_data.withColumn("is_late", model_data.is_late.cast("integer"))
+#model_data = model_data.withColumnRenamed("is_late", 'label')
+#model_data.show(15)
+
+
+#19
+#model_data.groupBy('label').count().show()
+
+
+#20
+#print((flights1.count(), len(flights1.columns)))
+#flights1.show(10)
+
