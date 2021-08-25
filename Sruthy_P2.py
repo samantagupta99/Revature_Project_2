@@ -26,6 +26,11 @@ model_data = model_data.filter("ARRIVAL_DELAY is not NULL and AIRLINE is not NUL
 model_data.show(15)
 model_data.count()
 
+#q15  count and columns of airlines
+print((flight.count(), len(flight.columns)))
+flight.show(10)
+
+
 
 
 
