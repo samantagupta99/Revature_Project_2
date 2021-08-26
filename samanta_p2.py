@@ -31,14 +31,12 @@ flights1=spark.read.option("header",True).csv("Project2/flights.csv")
 
 
 #4
-print((flights1.count(), len(flights1.columns)))
-flights1.show(5)
+#print((flights1.count(), len(flights1.columns)))
+#flights1.show(5)
 
 
 #5
-
-flights1.createOrReplaceTempView('flights')
-query = "SELECT AIRLINE, FLIGHT_NUMBER, TAIL_NUMBER, ORIGIN_AIRPORT, DESTINATION_AIRPORT, SCHEDULED_DEPARTURE FROM flights LIMIT 10"
-
-flights2 = spark.sql(query)
-flights2.show()
+#flights1.createOrReplaceTempView('flights')
+#query = "SELECT AIRLINE, FLIGHT_NUMBER, TAIL_NUMBER, ORIGIN_AIRPORT, DESTINATION_AIRPORT, SCHEDULED_DEPARTURE FROM flights LIMIT 10"
+#flights2 = spark.sql(query)
+#flights2.show()
