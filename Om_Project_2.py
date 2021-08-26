@@ -164,5 +164,10 @@ flights1.show(truncate=False,n=10)
 
 #20
 #print((flights1.count(), len(flights1.columns)))
-#flights1.show(10)
+#flights1.show()
 
+
+#21
+#query="SELECT f.AIRLINE,a.AIRLINE_CODE,a.AIRLINE from flights as f   JOIN airlines as a  on a.AIRLINE_CODE=f.AIRLINE LIMIT 10"
+#flights3 = spark.sql(query)
+#flights3.show()
