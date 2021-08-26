@@ -27,6 +27,17 @@ flights1.show(truncate=False,n=10)
 #Printing the Airlines dataset(First 10 Row)
 #airlines1.show(truncate=False,n=10)
 
+#4
+#print((flights1.count(), len(flights1.columns)))
+#flights1.show()
+
+
+#5
+#query = "SELECT AIRLINE, FLIGHT_NUMBER, TAIL_NUMBER, ORIGIN_AIRPORT, DESTINATION_AIRPORT, SCHEDULED_DEPARTURE FROM flights LIMIT 10"
+
+#flights2 = spark.sql(query)
+#flights2.show()
+
 
 # Define custom schema
 # schema = StructType([
