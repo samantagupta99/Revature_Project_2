@@ -10,7 +10,7 @@ spark = SparkSession.builder.appName('Airlines_DataSet').getOrCreate()
 spark.sparkContext.setLogLevel("ERROR")
 
 #1
-flights1=spark.read.option("header",True).csv("Project_2/flights.csv")
+flights1=spark.read.option("header",True).csv("Project2/flights.csv")
 flights1.printSchema()
 #Printing the Flight dataset(First 10 Row)
 flights1.show(truncate=False,n=10)
@@ -27,7 +27,7 @@ flights1.show(truncate=False,n=10)
 #Printing the Airlines dataset(First 10 Row)
 #airlines1.show(truncate=False,n=10)
 
-
+#4
 # Define custom schema
 # schema = StructType([
 #       StructField("YEAR",IntegerType(),True),
@@ -77,5 +77,5 @@ flights1.show(truncate=False,n=10)
 #flights2.printSchema()
 #flights2.show()
 
-
+#5
 #flights1.createOrReplaceTempView('flights')
