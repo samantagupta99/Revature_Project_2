@@ -79,16 +79,6 @@ flights1.show(truncate=False,n=10)
 
 #flights1.createOrReplaceTempView('flights')
 
-#4
-#query = "SELECT AIRLINE, FLIGHT_NUMBER, TAIL_NUMBER, ORIGIN_AIRPORT, DESTINATION_AIRPORT, SCHEDULED_DEPARTURE FROM flights LIMIT 10"
-
-#flights2 = spark.sql(query)
-#flights2.show()
-
-#5
-#query = "SELECT ORIGIN_AIRPORT, DESTINATION_AIRPORT, COUNT(*) as N FROM flights GROUP BY ORIGIN_AIRPORT, DESTINATION_AIRPORT"
-#flight_counts = spark.sql(query).show()
-
 #6
 #flights1.filter(flights1.AIR_TIME > 120).show(3)
 
@@ -114,60 +104,3 @@ flights1.show(truncate=False,n=10)
 # speed1 = flights1.select('TAIL_NUMBER', 'ORIGIN_AIRPORT', 'DESTINATION_AIRPORT', avg_speed)
 # speed1.show()
 
-
-#11
-#flights2.filter(flights2.ORIGIN_AIRPORT == 'PDX').groupBy().min('DISTANCE').show()
-
-
-#12
-#flights2.filter(flights2.ORIGIN_AIRPORT == 'SEA').groupBy().max('AIR_TIME').show()
-
-
-#13
-# by_plane = flights2.groupBy("TAIL_NUMBER")
-# by_plane.count().show(10)
-
-#14
-#by_origin = flights2.groupBy("ORIGIN_AIRPORT")
-#by_origin.avg("AIR_TIME").show(10)
-
-
-#15
-#by_month_dest = flights2.groupBy('MONTH', 'DESTINATION_AIRPORT')
-#by_month_dest.avg('DEPARTURE_DELAY').show(10)
-
-
-#16
-#flights_with_airports=flights1.join(airport1,flights1.ORIGIN_AIRPORT == airport1.IATA_CODE, "inner")
-#flights_with_airports.show(15)
-#print(flights_with_airports.columns)
-#print(flights_with_airports.count())
-
-#17
-#model_data = flights1.select('MONTH', 'DAY_OF_WEEK', 'AIRLINE', 'TAIL_NUMBER', 'DESTINATION_AIRPORT', 'AIR_TIME', 'DISTANCE', 'ARRIVAL_DELAY',)
-#model_data = model_data.filter("ARRIVAL_DELAY is not NULL and AIRLINE is not NULL and AIR_TIME is not NULL and TAIL_NUMBER is not NULL")
-#model_data.show(15)
-#model_data.count()
-
-
-#18
-#model_data = flights1.select('MONTH', 'DAY_OF_WEEK', 'AIRLINE', 'TAIL_NUMBER', 'DESTINATION_AIRPORT', 'AIR_TIME', 'DISTANCE', 'ARRIVAL_DELAY',)
-#model_data = model_data.withColumn("is_late", model_data.ARRIVAL_DELAY > 0)
-#model_data = model_data.withColumn("is_late", model_data.is_late.cast("integer"))
-#model_data = model_data.withColumnRenamed("is_late", 'label')
-#model_data.show(15)
-
-
-#19
-#model_data.groupBy('label').count().show()
-
-
-#20
-#print((flights1.count(), len(flights1.columns)))
-#flights1.show()
-
-
-#21
-#query="SELECT f.AIRLINE,a.AIRLINE_CODE,a.AIRLINE from flights as f   JOIN airlines as a  on a.AIRLINE_CODE=f.AIRLINE LIMIT 10"
-#flights3 = spark.sql(query)
-#flights3.show()
