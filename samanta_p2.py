@@ -16,18 +16,18 @@ flights1.printSchema()
 flights1.show(truncate=False,n=10)
 
 #2
-#airport1=spark.read.option("header",True).csv("Project_2/airports.csv")
+#airport1=spark.read.option("header",True).csv("Project2/airports.csv")
 #airport1.printSchema()
 #Printing the Airport dataset(First 10 Row)
 #airport1.show(truncate=False,n=10)
 
 #3
-#airlines1=spark.read.option("header",True).csv("Project_2/airlines.csv")
+#airlines1=spark.read.option("header",True).csv("Project2/airlines.csv")
 #airlines1.printSchema()
 #Printing the Airlines dataset(First 10 Row)
 #airlines1.show(truncate=False,n=10)
 
-#4
+
 # Define custom schema
 # schema = StructType([
 #       StructField("YEAR",IntegerType(),True),
@@ -77,5 +77,5 @@ flights1.show(truncate=False,n=10)
 #flights2.printSchema()
 #flights2.show()
 
-#5
+
 #flights1.createOrReplaceTempView('flights')
