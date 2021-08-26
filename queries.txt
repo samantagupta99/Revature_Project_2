@@ -1,71 +1,41 @@
-1. Read in the airports data and Show the top 10
+1. Read in the airports data and Show the top 10.
   
-2. Read in the flights data and Show the top 10
+2. Read in the flights data and Show the top 10.
 
-3. Read in the airlines data and Show the top 10
+3. Read in the airlines data and Show the top 10.
 
-4.select the columns AIRLINE, FLIGHT_NUMBER, TAIL_NUMBER, ORIGIN_AIRPORT, DESTINATION_AIRPORT, SCHEDULED_DEPARTURE FROM flights   [SQL]
+4. Select the columns AIRLINE, FLIGHT_NUMBER, TAIL_NUMBER, ORIGIN_AIRPORT, DESTINATION_AIRPORT, SCHEDULED_DEPARTURE FROM flights.
 
-5. count the number of flight from origin_Airport to Destination_Airport                                                          [SQL]
+5. Count the number of flight from origin_Airport to Destination_Airport.
 
-6. select the flight whose Air_time >120
+6. Select the flight whose Air_time >120.
 
-7.Show the airlines available between various Airport
+7. Show the airlines available between various Airport.
 
-8. Select the flight whose Origin_airport is "SEA" and Destination_port is "PDX"
+8. Select the flight whose Origin_airport is "SEA" and Destination_port is "PDX".
 
-9.Add duration_hrs columns and show it
+9. Add duration_hrs columns and show it.
 
-10. Find the average speed of each flights
+10. Find the average speed of each flights.
 
-11. Find the shortest flight from PDX in terms of distance
+11. Find the shortest flight from PDX in terms of distance.
 
-12. Find the longest flight from SEA in terms of air time
+12. Find the longest flight from SEA in terms of air time.
 
-13. Group the flights by tailnum and find Number of flights each plane made
+13. Group the flights by tailnum and find Number of flights each plane made.
 
-14. Group the flights by origin_airport and Average duration of flights from PDX and SEA
+14. Group the flights by origin_airport and Average duration of flights from PDX and SEA.
 
-15. Group the data by month and dest and find Average departure delay
+15. Group the data by month and dest and find Average departure delay.
 
-16.Join the DataFrames airports and flights
+16. Join the DataFrames airports and flights.
 
-##############################################################################################
+17. FILTER (CHOSEN) COLUMSN WITHOUT NULL.
 
-16.# filtering columns
-model_data = flights.select('MONTH', 'DAY_OF_WEEK', 'AIRLINE', 'TAIL_NUMBER', 'DESTINATION_AIRPORT', 'AIR_TIME', 'DISTANCE', 'ARRIVAL_DELAY',)
+18. FLIIGHTS WITH A DELAY Creating is_late (label).
 
-# Remove missing values
-model_data = model_data.filter("ARRIVAL_DELAY is not NULL and AIRLINE is not NULL and AIR_TIME is not NULL and TAIL_NUMBER is not NULL")
-model_data.show(15)
-# rows left
-model_data.count()
+19. FIND FLIGHTS WITH DELAY, NO DELAY, NULL (print('Labels distrubution:')).
 
+20. Count and columns of flights dataset.
 
-
-17.# Create is_late (label)
-model_data = flights.select('MONTH', 'DAY_OF_WEEK', 'AIRLINE', 'TAIL_NUMBER', 'DESTINATION_AIRPORT', 'AIR_TIME', 'DISTANCE', 'ARRIVAL_DELAY',)
-model_data = model_data.withColumn("is_late", model_data.ARRIVAL_DELAY > 0)
-
-model_data = model_data.withColumn("is_late", model_data.is_late.cast("integer"))
-
-# rename column
-model_data = model_data.withColumnRenamed("is_late", 'label')
-model_data.show(15)
-
-18.print('Labels distrubution:')
-model_data.groupBy('label').count().show()
-
-19.#display abbrevation of airlines by jlining 2 tables
-query = "SELECT f.AIRLINE,a.AIRLINE
-               FROM flights f
-               JOIN AIRLINES a.AIRLINE_CODE=f.AIRLINE
-               LIMIT 5"
-
-flights = spark.sql(query)
-flights.show()
-
-20. https://easyrdatascience.files.wordpress.com/2018/07/pyspark-3-dataframes.pdf     [spark SQL.. Pg 25]
-
-21.https://github.com/goldshtn/spark-workshop/blob/master/scala/lab2-airlines.md   [RDD]
-
+21. Merge flight and airlines data based on airport [SQL].
