@@ -14,6 +14,7 @@ flights1=spark.read.option("header",True).csv("Project2/flights.csv")
 flights1.printSchema()
 #Printing the Flight dataset(First 10 Row)
 flights1.show(truncate=False,n=10)
+flights1.createOrReplaceTempView('flights')
 
 #2
 #airport1=spark.read.option("header",True).csv("Project2/airports.csv")
@@ -89,4 +90,4 @@ flights1.show(truncate=False,n=10)
 #flights2.show()
 
 
-#flights1.createOrReplaceTempView('flights')
+
