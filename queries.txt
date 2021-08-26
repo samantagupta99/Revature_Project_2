@@ -4,11 +4,11 @@
 
 3. Read in the airlines data and Show the top 10.
 
-4. select the columns AIRLINE, FLIGHT_NUMBER, TAIL_NUMBER, ORIGIN_AIRPORT, DESTINATION_AIRPORT, SCHEDULED_DEPARTURE FROM flights.
+4. Select the columns AIRLINE, FLIGHT_NUMBER, TAIL_NUMBER, ORIGIN_AIRPORT, DESTINATION_AIRPORT, SCHEDULED_DEPARTURE FROM flights.
 
-5. count the number of flight from origin_Airport to Destination_Airport.
+5. Count the number of flight from origin_Airport to Destination_Airport.
 
-6. select the flight whose Air_time >120.
+6. Select the flight whose Air_time >120.
 
 7. Show the airlines available between various Airport.
 
@@ -36,6 +36,6 @@
 
 19. FIND FLIGHTS WITH DELAY, NO DELAY, NULL (print('Labels distrubution:')).
 
-20.count and columns of flights dataset.
+20. Count and columns of flights dataset.
 
-21. merge flight and airlines data based on airport [SQL].
+21. Merge flight and airlines data based on airport [SQL].
