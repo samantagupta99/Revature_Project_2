@@ -62,7 +62,7 @@ flights1.createOrReplaceTempView('flights')
 airlines1.createOrReplaceTempView('airlines')
 
 #Q16
-print("Query 16 : Joining the tables with IATA code")
+print("Query 16 : Joining the tables with IATA code  -> flights with airports")
 flights_with_airports=flights1.join(airport1,flights1.ORIGIN_AIRPORT == airport1.IATA_CODE, "inner")
 flights_with_airports.show(15)
 print(flights_with_airports.columns)
@@ -70,24 +70,24 @@ print(flights_with_airports.count())
 
 #17
 print("Query 17 : Display airline details where arrival delay, airline, air time and tail number is not null")
-model_data = flights1.select('MONTH', 'DAY_OF_WEEK', 'AIRLINE', 'TAIL_NUMBER', 'DESTINATION_AIRPORT', 'AIR_TIME', 'DISTANCE', 'ARRIVAL_DELAY',)
-model_data = model_data.filter("ARRIVAL_DELAY is not NULL and AIRLINE is not NULL and AIR_TIME is not NULL and TAIL_NUMBER is not NULL")
-model_data.show(15)
-model_data.count()
+data = flights1.select('MONTH', 'DAY_OF_WEEK', 'AIRLINE', 'TAIL_NUMBER', 'DESTINATION_AIRPORT', 'AIR_TIME', 'DISTANCE', 'ARRIVAL_DELAY',)
+data1 = data.filter("ARRIVAL_DELAY is not NULL and AIRLINE is not NULL and AIR_TIME is not NULL and TAIL_NUMBER is not NULL")
+data1.show(15)
+data1.count()
 
 
 #18
 print("Query 18 : Display flight delays with new column:label")
-model_data = flights1.select('MONTH', 'DAY_OF_WEEK', 'AIRLINE', 'TAIL_NUMBER', 'DESTINATION_AIRPORT', 'AIR_TIME', 'DISTANCE', 'ARRIVAL_DELAY',)
-model_data = model_data.withColumn("is_late", model_data.ARRIVAL_DELAY > 0)
-model_data = model_data.withColumn("is_late", model_data.is_late.cast("integer"))
-model_data = model_data.withColumnRenamed("is_late", 'label')
-model_data.show(15)
+data2 = flights1.select('MONTH', 'DAY_OF_WEEK', 'AIRLINE', 'TAIL_NUMBER', 'DESTINATION_AIRPORT', 'AIR_TIME', 'DISTANCE', 'ARRIVAL_DELAY',)
+data3 = data2.withColumn("is_late", data2.ARRIVAL_DELAY > 0)
+data3 = data3.withColumn("is_late", data3.is_late.cast("integer"))
+data3 = data3.withColumnRenamed("is_late", 'label')
+data3.show(15)
 
 
 #19
 print("Query 19 : Count of flights with delay, no delay and null data")
-model_data.groupBy('label').count().show()
+data3.groupBy('label').count().show()
 
 
 #20
