@@ -1,0 +1,10 @@
+Time ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+YEAR,MONTH,DAY,DAY_OF_WEEK,AIRLINE,FLIGHT_NUMBER,TAIL_NUMBER,ORIGIN_AIRPORT,DESTINATION_AIRPORT,SCHEDULED_DEPARTURE,DEPARTURE_TIME,DEPARTURE_DELAY,TAXI_OUT,WHEELS_OFF,SCHEDULED_TIME,ELAPSED_TIME,AIR_TIME,DISTANCE,WHEELS_ON,TAXI_IN,SCHEDULED_ARRIVAL,ARRIVAL_TIME,ARRIVAL_DELAY,DIVERTED,CANCELLED,CANCELLATION_REASON,AIR_SYSTEM_DELAY,SECURITY_DELAY,AIRLINE_DELAY,LATE_AIRCRAFT_DELAY,WEATHER_DELAY,WEATHER_DELAY
+2015,january,1--31,1--7,Name,Number,To identif,IATA,IATA,HH:MM,HH:MM,K-J,N-K,HH:MM,U-J,M+t+Q,S-N,,,,,,V-U,0 /1,0/1,A--D,By C,By d,By A,By A,By B,
+,,,,,,a,,,12:15,,,Time ,Time of,Sc.Arrival -,Air Time +,,Distance,Touches,wheels on -,Planned time,Actual time,,,,A - Airline/Carrier;,,,,,,
+,,,,,,specific,,,,,,between,Take Off,Sc.Depart,Taxi In +,Wheels off-,b/w,ground,gate arrival,,,,,, B - Weather; ,,,,,,
+,,,,,,airplane,,,,,,take off,,,Taxi Out,Wheels on,airports,,,,,,,,C - National Air System; ,,,,,,
+,,,,,,,,,,,,and,,,or,,,,,,,,,,D - Security,,,,,,
+,,,,,,,,,,,,run,,,V-K,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,Arrival -,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,Departure,,,,,,,,,,,,,,,,
