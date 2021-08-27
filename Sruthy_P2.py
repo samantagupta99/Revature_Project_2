@@ -59,6 +59,7 @@ flights2 = spark.read.format("csv") \
        .load("ProjectP2/flights.csv")
 
 flights1.createOrReplaceTempView('flights')
+airlines1.createOrReplaceTempView('airlines')
 
 #Q16
 print("Query 16 : Joining the tables with IATA code")
@@ -90,17 +91,13 @@ model_data.groupBy('label').count().show()
 
 
 #20
-print("Query 20 : Count of flights")
-print((flights1.count(), len(flights1.columns)))
-flights1.show()
-
-#query = "SELECT ORIGIN_AIRPORT, DESTINATION_AIRPORT, COUNT(*) as N FROM flights GROUP BY ORIGIN_AIRPORT, DESTINATION_AIRPORT"
-#flight_counts = spark.sql(query).show()
+query = "SELECT ORIGIN_AIRPORT, DESTINATION_AIRPORT, COUNT(*) as N FROM flights GROUP BY ORIGIN_AIRPORT, DESTINATION_AIRPORT"
+flight_counts = spark.sql(query).show()
 
 #21
-#query="SELECT f.AIRLINE,a.AIRLINE_CODE,a.AIRLINE from flights as f   JOIN airlines as a  on a.AIRLINE_CODE=f.AIRLINE LIMIT 10"
-#flights3 = spark.sql(query)
-#flights3.show()
+query="SELECT f.AIRLINE,a.AIRLINE_CODE,a.AIRLINE from flights as f   JOIN airlines as a  on a.AIRLINE_CODE=f.AIRLINE LIMIT 10"
+flights3 = spark.sql(query)
+flights3.show()
 
 
 
