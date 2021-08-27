@@ -24,7 +24,7 @@
 
 13. Group the flights by tailnum and find Number of flights each plane made.
 
-14. Group the flights by origin_airport and Average duration of flights from PDX and SEA.
+14. Group the flights by origin_airport and Average time.
 
 15. Group the data by month and dest and find Average departure delay.
 
