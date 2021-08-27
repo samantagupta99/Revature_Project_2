@@ -94,6 +94,8 @@ print("Query 20 : Count of flights")
 print((flights1.count(), len(flights1.columns)))
 flights1.show()
 
+#query = "SELECT ORIGIN_AIRPORT, DESTINATION_AIRPORT, COUNT(*) as N FROM flights GROUP BY ORIGIN_AIRPORT, DESTINATION_AIRPORT"
+#flight_counts = spark.sql(query).show()
 
 #21
 #query="SELECT f.AIRLINE,a.AIRLINE_CODE,a.AIRLINE from flights as f   JOIN airlines as a  on a.AIRLINE_CODE=f.AIRLINE LIMIT 10"
