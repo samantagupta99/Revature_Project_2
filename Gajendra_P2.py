@@ -74,10 +74,12 @@ flights2.filter(flights2.ORIGIN_AIRPORT == 'SEA').groupBy().max('AIR_TIME').show
 by_plane = flights2.groupby("tail_number")
 by_plane.count().show(10)
 
-#14 Group the flights by origin_airport and Average duration of flights from PDX and SEA.
-by_origin = flights2.groupBy("ORIGIN_AIRPORT")
-by_origin.avg("AIR_TIME").show(10)
+#14 Group the flights by origin_airport and Average duration of flights from SEA to PDX.
+#by_origin = flights2.groupBy("ORIGIN_AIRPORT")
+#by_origin.avg("AIR_TIME").show(10)
 
+by_origin = flights2.filter(flights2.ORIGIN_AIRPORT == "SEA").filter(flights2.DESTINATION_AIRPORT == "PDX").groupBy("ORIGIN_AIRPORT","DESTINATION_AIRPORT")
+by_origin.avg("AIR_TIME").show(10)
 
 #15 Group the data by month and dest and find Average departure delay.
 by_month_dest = flights2.groupBy('MONTH', 'DESTINATION_AIRPORT')
