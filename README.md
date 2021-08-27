@@ -50,6 +50,7 @@ Performing the above action you are enter to VM CLI then do the following comman
 * In this folder clone the git repository from where we pull the dataset using command "git clone 'git repository link' "
 * All dataet are in a zip file we have to unzip it using command "unzip file_name" (N.B: if you are unzip in the current file ) .
 * After unzip all the file create a folder in hdfs using command which is little bit difference before we tried while creating folder is "hdfs dfs -mkdir folder_name" (By default this folder created in the path user/maria_dev/ ) and copy all file to the hdfs folder by ""hdfs dfs -put file-name /user/maria_dev/folder_name".
+* Also a second procedure is there by which we can add file from local machine to our VM using command "scp -P 2222 ./airlines.csv  maria_dev@sandbox-hdp.hortonworks.com:/home/maria_dev/Project_2"
 * Before performing all the above action try to check whether your Ambari which is management platform for hadoop started all services or not.
 * After performing all the action try to create a .py file where write all the program using "vi" editor and save the file using esc + : + wq .
 * After saving the file give command "spark-submit file_name" it will execute the file using SPARK 2 version.

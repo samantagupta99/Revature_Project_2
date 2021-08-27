@@ -58,28 +58,28 @@ flights2.printSchema()
 flights2.show()
 
 
-#9
+#9 Add duration_hrs columns and show it.
 flight3 = flights2.withColumn('duration_hrs', flights2.AIR_TIME/60)
 flight3.select('duration_hrs').show(10)
 
-#11
+#11 Find the shortest flight from PDX in terms of distance.
 b=flights2.filter(flights2.ORIGIN_AIRPORT == 'PDX').groupBy().min('DISTANCE')
 b.show()
 
-#12
+#12 Find the longest flight from SEA in terms of air time.
 flights2.filter(flights2.ORIGIN_AIRPORT == 'SEA').groupBy().max('AIR_TIME').show()
 
 
-#13
+#13 Group the flights by tailnum and find Number of flights each plane made.
 by_plane = flights2.groupby("tail_number")
 by_plane.count().show(10)
 
-#14
+#14 Group the flights by origin_airport and Average duration of flights from PDX and SEA.
 by_origin = flights2.groupBy("ORIGIN_AIRPORT")
 by_origin.avg("AIR_TIME").show(10)
 
 
-#15
+#15 Group the data by month and dest and find Average departure delay.
 by_month_dest = flights2.groupBy('MONTH', 'DESTINATION_AIRPORT')
 by_month_dest.avg('DEPARTURE_DELAY').show(10)
 
