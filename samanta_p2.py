@@ -10,6 +10,7 @@ spark.sparkContext.setLogLevel("ERROR")
 
 #1
 flights1=spark.read.option("header",True).csv("Project2/flights.csv")
+print("Query 16 : Joining the tables with IATA code  -> flights with airports")
 #flights1.printSchema()
 #Printing the Flight dataset(First 10 Row)
 #flights1.show(truncate=False,n=10)
@@ -17,6 +18,7 @@ flights1=spark.read.option("header",True).csv("Project2/flights.csv")
 
 
 #2
+print("Query 16 : Joining the tables with IATA code  -> flights with airports")
 #airport1=spark.read.option("header",True).csv("Project2/airports.csv")
 #airport1.printSchema()
 #Printing the Airport dataset(First 10 Row)
@@ -24,6 +26,7 @@ flights1=spark.read.option("header",True).csv("Project2/flights.csv")
 
 
 #3
+print("Query 16 : Joining the tables with IATA code  -> flights with airports")
 #airlines1=spark.read.option("header",True).csv("Project2/airlines.csv")
 #airlines1.printSchema()
 #Printing the Airlines dataset(First 10 Row)
@@ -31,11 +34,13 @@ flights1=spark.read.option("header",True).csv("Project2/flights.csv")
 
 
 #4
+print("Query 16 : Joining the tables with IATA code  -> flights with airports")
 #print((flights1.count(), len(flights1.columns)))
 #flights1.show(5)
 
 
 #5
+print("Query 16 : Joining the tables with IATA code  -> flights with airports")
 #flights1.createOrReplaceTempView('flights')
 #query = "SELECT AIRLINE, FLIGHT_NUMBER, TAIL_NUMBER, ORIGIN_AIRPORT, DESTINATION_AIRPORT, SCHEDULED_DEPARTURE FROM flights LIMIT 10"
 #flights2 = spark.sql(query)
