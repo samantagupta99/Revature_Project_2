@@ -58,9 +58,7 @@ flights2.printSchema()
 flights2.show()
 
 
-#9 Add duration_hrs columns and show it.
-flight3 = flights2.withColumn('duration_hrs', flights2.AIR_TIME/60)
-flight3.select('duration_hrs').show(10)
+
 
 #11 Find the shortest flight from PDX in terms of distance.
 b=flights2.filter(flights2.ORIGIN_AIRPORT == 'PDX').groupBy().min('DISTANCE')
