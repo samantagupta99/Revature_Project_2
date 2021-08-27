@@ -4,7 +4,7 @@
 
 3. Read in the airlines data and Show the top 10.
 
-4. Count and columns of flights dataset.
+4. Count the number of row and columns of flights dataset.
 
 5. Select the columns AIRLINE, FLIGHT_NUMBER, TAIL_NUMBER, ORIGIN_AIRPORT, DESTINATION_AIRPORT, SCHEDULED_DEPARTURE FROM flights.
 
