@@ -15,28 +15,27 @@ Project 2 where we are working in small groups to develop an application that wi
 List of features ready and TODOs for future development
 using this project some query are solved using pyspark,dataframe ,following questions are listed below:
 
-01. Read in the airports data and Show the top 10.
-02. Read in the flights data and Show the top 10.
-03. Read in the airlines data and Show the top 10.
-04. Count and columns of flights dataset.
-05. Select the columns AIRLINE, FLIGHT_NUMBER, TAIL_NUMBER, ORIGIN_AIRPORT, DESTINATION_AIRPORT, SCHEDULED_DEPARTURE FROM flights.
-06. Select the flight whose Air_time >120.
-07. Show the airlines available between various Airport.
-08. Select the flight whose Origin_airport is "SEA" and Destination_port is "PDX".
-09. Add duration_hrs columns and show it.
-10. Find the average speed of each flights.
-11. Find the shortest flight from PDX in terms of distance.
+1. Read the airports data and Show the top 10.
+2. Read the flights data and Show the top 10.
+3. Read the airlines data and Show the top 10.
+4. Count the number of row and columns of flights dataset.
+5. Select the columns: AIRLINE, FLIGHT_NUMBER, TAIL_NUMBER, ORIGIN_AIRPORT, DESTINATION_AIRPORT, SCHEDULED_DEPARTURE from flights.
+6. Select the flights whose Air time is greater than 120 minutes (2 hr).
+7. Show the airlines available between Airports based on the IATA codes of origin and destination airport.
+8. Select the flights whose Origin airport is "SEA" and Destination airport is "PDX".
+9. Calculate the duration of flights in hours and show top 10.
+10. Find the average speed of each flights in Km/hr and display 'TAIL_NUMBER', 'ORIGIN_AIRPORT', 'DESTINATION_AIRPORT' and 'average speed'.
+11. Find the shortest distance in Km, covered by the flight that originates from airport 'PDX'.
 12. Find the longest flight from SEA in terms of air time.
-13. Group the flights by tailnum and find Number of flights each plane made.
-14. Group the flights by origin_airport and Average duration of flights from PDX and SEA.
-15. Group the data by month and dest and find Average departure delay.
-16. Join the DataFrames airports and flights.
-17. FILTER (CHOSEN) COLUMSN WITHOUT NULL.
-18. FLIIGHTS WITH A DELAY Creating is_late (label).
-19. FIND FLIGHTS WITH DELAY, NO DELAY, NULL (print('Labels distrubution:')).
-20. Count the number of flight from origin_Airport to Destination_Airport.
-21. Merge flight and airlines data based on airport [SQL].
-
+13. Group the flights by its tail number and find the Number of flights per airplane.
+14. Group the flights by origin airport and calculate the average time of the flights from SEA to PDX.
+15. Group the data by month and destination airport and find the Average departure delay of the flights.
+16. Join the DataFrames airports and flights based on the IATA codes of the origin airport.
+17. Display MONTH, DAY OF WEEK, AIRLINE, TAIL NUMBER, DESTINATION_AIRPORT, AIR_TIME, DISTANCE and ARRIVAL_DELAY form flights where ARRIVAL_DELAY, AIRLINE, AIR_TIME,     TAIL_NUMBER is not NULL.
+18. Display flights with a delay and create a new column ('label') that shows the labels assigned to the flights, where 0 indicates no delay and 1 indicates delay.
+19. Count the number of flights that has delay (arrival time > 0 minutes), no delay and null labels.
+20. Count the number of flight from each of the combinations of origin Airport and destination Airport.
+21. Join flight and airlines data based on IATA codes of the airports inorder to display the abbrevations of the airlines.
 
 
 ## Getting Started
