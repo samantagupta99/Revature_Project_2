@@ -58,7 +58,11 @@ Performing the above action you are enter to VM CLI then do the following comman
 
 >Using this project any one can perform analysis with the Airlines dataset
  
-
+## Contributors
+>Gajendra kumar samal(Gajendrasamal6)
+>Om prakash Singh(omsingh1998)
+>Samanta Gupta(samantagupta99)
+>Shruty Sebastian(ShrutySebastian1)
 
 
 
