@@ -2,7 +2,7 @@
 
 ## Project Description
 
-Project 2 where we are working in small groups to develop an application that willprocess and extract value from large Airlines datasets in Spark and apply what we have learned utilizing the differentoptimizations and components of Spark such as DataFrames, Datasets, SparkSQL and RDD's
+Project 2 where we are working in small groups to develop an application that will process and extract value from large Airlines datasets in Spark and apply our knowledge acquired and thereby utilizing the different optimizations and components of Spark such as DataFrames, Datasets, SparkSQL and RDD's
 ## Technologies Used
 
 * Hadoop - version 2.7.3.2.6.5.0-292
@@ -13,7 +13,7 @@ Project 2 where we are working in small groups to develop an application that wi
 ## Features
 
 List of features ready and TODOs for future development
-using this project some query are solved using pyspark,dataframe ,following questions are listed below:
+using this project some query are solved using pyspark, dataframe,following questions are listed below:
 
 1. Read the airports data and Show the top 10.
 2. Read the flights data and Show the top 10.
@@ -62,7 +62,7 @@ Performing the above action you are enter to VM CLI then do the following comman
 * Gajendra kumar samal(Gajendrasamal6)
 * Om prakash Singh(omsingh1998)
 * Samanta Gupta(samantagupta99)
-* Shruty Sebastian(ShrutySebastian1)
+* Sruthy Sebastian(SrutySebastian1)
 
 
 
